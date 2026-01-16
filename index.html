@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUVATIMI-H | Professional Facade Services</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="#home" class="logo-link">
+            <div class="logo">
+                <h1>SUVATIMI-H SHPK</h1>
+                <p class="tagline">Fasad Profesional</p>
+            </div>
+        </a>
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="#home" data-en="Home" data-sq="Shtëpi">Home</a></li>
+            <li><a href="#services" data-en="Services" data-sq="Shërbime">Services</a></li>
+            <li><a href="#about" data-en="About" data-sq="Rreth">About</a></li>
+            <li><a href="#suppliers" data-en="Suppliers" data-sq="Furnizuesit">Suppliers</a></li>
+            <li><a href="#appointments" data-en="Book Appointment" data-sq="Rezervo Takimin">Book Appointment</a></li>
+            <li><a href="#contact" data-en="Contact" data-sq="Kontakt">Contact</a></li>
+        </ul>
+        <div class="language-switcher">
+            <button class="lang-dropdown-btn" onclick="toggleLanguageDropdown()">
+                <span id="current-lang">English</span>
+                <span class="dropdown-arrow">▼</span>
+            </button>
+            <div class="language-dropdown" id="language-dropdown">
+                <button class="lang-option active" onclick="changeLanguage('en'); toggleLanguageDropdown()">English (EN)</button>
+                <button class="lang-option" onclick="changeLanguage('sq'); toggleLanguageDropdown()">Shqip (SQ)</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>SUVATIMI-H SHPK</h1>
+            <p data-hero-subtitle>Professional Facade Services</p>
+            <p class="subtitle" data-hero-tagline>Quality Construction & Facade Work You Can Trust</p>
+            <a href="#contact" class="cta-button" data-get-in-touch>Get In Touch</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 data-our-services>Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🧱</div>
+                    <h3 data-suvatim-title>Suvatim</h3>
+                    <p data-suvatim-desc>Professional plastering and rendering services using high-quality materials for smooth, durable finishes.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏗️</div>
+                    <h3 data-fasad-title>Fasad </h3>
+                    <p data-fasad-desc>Complete facade systems installation and renovation with premium materials and expert craftsmanship.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">⬜</div>
+                    <h3 data-knauf-title>Knauf Systems</h3>
+                    <p data-knauf-desc>Specialized Knauf drywall and partition systems for interior and exterior applications.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎨</div>
+                    <h3 data-ngjyra-title>Ngjyra (Painting)</h3>
+                    <p data-ngjyra-desc>Professional painting services with high-quality paints and finishes for aesthetic and protective coatings.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">❄️</div>
+                    <h3 data-izolim-title>Izolim (Insulation)</h3>
+                    <p data-izolim-desc>Thermal and acoustic insulation solutions to improve energy efficiency and comfort of your property.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 data-about-title>About SUVATIMI-H</h2>
+                    <p data-about-text1>With years of experience in facade and construction services, SUVATIMI-H is dedicated to delivering excellence in every project. We pride ourselves on quality workmanship, professional service, and customer satisfaction.</p>
+                    <p data-about-text2>Our team of skilled professionals is committed to transforming your property with durable, beautiful facade solutions.</p>
+                    <ul class="about-list">
+                        <li><span data-team>✓ Professional & Experienced Team</span></li>
+                        <li><span data-quality>✓ Quality Materials & Craftsmanship</span></li>
+                        <li><span data-reliable>✓ Reliable & Timely Service</span></li>
+                        <li><span data-pricing>✓ Competitive Pricing</span></li>
+                        <li><span data-satisfaction>✓ Customer Satisfaction Guaranteed</span></li>
+                    </ul>
+                </div>
+                <div class="about-image">
+                    <div class="image-placeholder">
+                        <p data-gallery>📸 Project Gallery</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Suppliers Section -->
+    <section id="suppliers" class="suppliers">
+        <div class="container">
+            <h2 data-en="Our Suppliers" data-sq="Furnizuesit Tanë" data-suppliers-title>Our Suppliers</h2>
+            <p class="section-subtitle" data-en="We work with trusted quality material suppliers" data-sq="Punojmë me furnizues të besuar të materialeve cilësore" data-suppliers-subtitle>We work with trusted quality material suppliers</p>
+            <div class="suppliers-grid">
+                <a href="https://gemix.com/" target="_blank" class="supplier-card supplier-link">
+                    <div class="supplier-logo">
+                        <img src="gemix-logo.png" alt="Gemix Logo">
+                    </div>
+                    <p class="supplier-click-text" data-en="Click to visit Gemix website" data-sq="Kliko për të vizituar faqen e Gemix" data-click-gemix>Click to visit Gemix website</p>
+                    <h3>Gemix</h3>
+                    <p>Premium quality materials and supplies for facade and construction projects</p>
+                </a>
+                <a href="https://knauf.com/en" target="_blank" class="supplier-card supplier-link">
+                    <div class="supplier-logo">
+                        <img src="Knauf.png" alt="Knauf Logo">
+                    </div>
+                    <p class="supplier-click-text" data-en="Click to visit Knauf website" data-sq="Kliko për të vizituar faqen e Knauf" data-click-knauf>Click to visit Knauf website</p>
+                    <h3>Knauf</h3>
+                    <p>Leading manufacturer of drywall systems, insulation, and finishing solutions for construction</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Appointments Section -->
+    <section id="appointments" class="appointments">
+        <div class="container">
+            <h2 data-book-apt-title>Book an Appointment</h2>
+            <p class="section-subtitle" data-book-apt-subtitle>Schedule a free consultation for your facade project</p>
+            
+            <div class="appointments-wrapper">
+                <div class="appointment-info">
+                    <div class="info-card">
+                        <h3 data-how-works>📅 How It Works</h3>
+                        <ol>
+                            <li data-step1>Fill out the appointment form</li>
+                            <li data-step2>Select your preferred date and time</li>
+                            <li data-step3>Describe your project</li>
+                            <li data-step4>We'll confirm your appointment</li>
+                        </ol>
+                    </div>
+                    <div class="info-card">
+                        <h3 data-available-hours>⏱️ Available Hours</h3>
+                        <p><strong data-mon-sat>Monday - Saturday</strong></p>
+                        <p data-eight-six>8:00 AM - 6:00 PM</p>
+                        <p style="margin-top: 15px; color: #999;" data-sunday>Sunday: Closed</p>
+                    </div>
+                    <div class="info-card">
+                        <h3 data-free-consult>✓ Free Consultation</h3>
+                        <p data-no-obligation>No obligation assessment of your facade needs and project requirements</p>
+                    </div>
+                </div>
+
+                <form class="appointment-form" action="https://formsubmit.co/diell.morina5@gmail.com" method="POST">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label data-label-name>Full Name *</label>
+                            <input type="text" name="full_name" placeholder="Your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label data-label-email>Email *</label>
+                            <input type="email" name="email" placeholder="Your email" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label data-label-phone>Phone *</label>
+                            <input type="tel" name="phone" placeholder="Your phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label data-label-property>Property Type *</label>
+                            <select name="property_type" required>
+                                <option value="" data-select-property>Select property type</option>
+                                <option value="residential" data-residential>Residential</option>
+                                <option value="commercial" data-commercial>Commercial</option>
+                                <option value="industrial" data-industrial>Industrial</option>
+                                <option value="other" data-other>Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label data-label-date>Preferred Date *</label>
+                            <input type="date" name="preferred_date" required>
+                        </div>
+                        <div class="form-group">
+                            <label data-label-time>Preferred Time *</label>
+                            <select name="preferred_time" required>
+                                <option value="" data-select-time>Select time</option>
+                                <option value="08:00">8:00 AM</option>
+                                <option value="09:00">9:00 AM</option>
+                                <option value="10:00">10:00 AM</option>
+                                <option value="11:00">11:00 AM</option>
+                                <option value="12:00">12:00 PM</option>
+                                <option value="14:00">2:00 PM</option>
+                                <option value="15:00">3:00 PM</option>
+                                <option value="16:00">4:00 PM</option>
+                                <option value="17:00">5:00 PM</option>
+                                <option value="18:00">6:00 PM</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label data-label-service>Service Type *</label>
+                        <select name="service_type" required>
+                            <option value="" data-select-service>Select service</option>
+                            <option value="suvatim" data-opt-suvatim>Suvatim (Rendering)</option>
+                            <option value="fasad" data-opt-fasad>Fasad (Facade)</option>
+                            <option value="knauf" data-opt-knauf>Knauf Systems</option>
+                            <option value="ngjyra" data-opt-ngjyra>Ngjyra (Painting)</option>
+                            <option value="izolim" data-opt-izolim>Izolim (Insulation)</option>
+                            <option value="consultation" data-opt-consult>General Consultation</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label data-label-details>Project Details</label>
+                        <textarea name="project_details" placeholder="Describe your project (optional)" rows="4"></textarea>
+                    </div>
+
+                    <input type="hidden" name="_captcha" value="false">
+                    <button type="submit" class="submit-btn" data-schedule-apt>Schedule Appointment</button>
+                    
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 data-contact-title>Contact Us</h2>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <h3 data-phone-label>📞 Phone</h3>
+                        <p><a href="tel:+38344217540">+38344217540</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <h3 data-email-label>📧 Email</h3>
+                        <p><a href="mailto:diell.morina5@gmail.com">diell.morina5@gmail.com</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <h3 data-address-label>📍 Address</h3>
+                        <p>Ratkoc</p>
+                    </div>
+                    <div class="contact-item">
+                        <h3 data-hours-label>⏰ Hours</h3>
+                        <p data-hours-time>Monday - Saturday: 8:00 AM - 6:00 PM</p>
+                        <p data-sunday-label>Sunday: Closed</p>
+                    </div>
+                </div>
+
+                <form class="contact-form" action="https://formsubmit.co/diell.morina5@gmail.com" method="POST">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" name="phone" placeholder="Your Phone">
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                    </div>
+                    <input type="hidden" name="_captcha" value="false">
+                    <button type="submit" class="submit-btn" data-send-message>Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p data-copyright>&copy; 2026 SUVATIMI-H. All rights reserved.</p>
+            <p data-footer-services>Professional Facade & Construction Services</p>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="https://unpkg.com/@emailjs/browser@3/dist/index.min.js"></script>
+    <script src="translations.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
