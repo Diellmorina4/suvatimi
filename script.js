@@ -4,6 +4,32 @@ function toggleMenu() {
     navMenu.classList.toggle('active');
 }
 
+// Menu position toggle
+function toggleMenuPosition() {
+    const body = document.body;
+    const positionText = document.getElementById('position-text');
+    const currentLang = localStorage.getItem('language') || 'en';
+    
+    if (typeof translations === 'undefined') {
+        console.error('Translations not loaded');
+        return;
+    }
+    
+    const t = translations[currentLang];
+    
+    if (body.classList.contains('navbar-left')) {
+        body.classList.remove('navbar-left');
+        body.classList.add('navbar-top');
+        localStorage.setItem('menuPosition', 'top');
+        if (positionText) positionText.textContent = t.menuPositionTop;
+    } else {
+        body.classList.remove('navbar-top');
+        body.classList.add('navbar-left');
+        localStorage.setItem('menuPosition', 'left');
+        if (positionText) positionText.textContent = t.menuPositionLeft;
+    }
+}
+
 // Language dropdown toggle
 function toggleLanguageDropdown() {
     const dropdown = document.getElementById('language-dropdown');
@@ -43,8 +69,16 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Initialize language on page load
+// Initialize language and menu position on page load
 document.addEventListener('DOMContentLoaded', () => {
+    // Load menu position from localStorage
+    const savedPosition = localStorage.getItem('menuPosition') || 'left';
+    const body = document.body;
+    const positionText = document.getElementById('position-text');
+    
+    // Apply saved position
+    body.classList.add(`navbar-${savedPosition}`);
+    
     // Wait for EmailJS to be available
     function initEmailJS() {
         if (typeof emailjs !== 'undefined') {
@@ -55,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     initEmailJS();
     
-    const savedLanguage = localStorage.getItem('language') || 'en';
+    const savedLanguage = localStorage.getItem('language') || 'sq';
     changeLanguage(savedLanguage);
     updateLanguageButtons(savedLanguage);
 });
@@ -72,6 +106,23 @@ function changeLanguage(lang) {
     }
     
     const t = translations[lang];
+    
+    // Update Navigation Menu Items
+    document.querySelectorAll('[data-en]').forEach(el => {
+        if (lang === 'en') {
+            el.textContent = el.getAttribute('data-en');
+        } else if (lang === 'sq') {
+            el.textContent = el.getAttribute('data-sq');
+        }
+    });
+    
+    // Update Position Button Text
+    const positionText = document.getElementById('position-text');
+    if (positionText) {
+        const currentPosition = document.body.classList.contains('navbar-top') ? 'top' : 'left';
+        const positionKey = currentPosition === 'top' ? 'menuPositionTop' : 'menuPositionLeft';
+        positionText.textContent = t[positionKey];
+    }
     
     // Update Hero Section
     document.querySelectorAll('[data-hero-subtitle]').forEach(el => {
@@ -410,3 +461,25 @@ document.addEventListener('click', function(event) {
         navMenu.classList.remove('active');
     }
 });
+
+// Handle permission request for external supplier links
+function askPermissionToVisit(supplier, url) {
+    const currentLang = localStorage.getItem('language') || 'en';
+    const t = typeof translations !== 'undefined' ? translations[currentLang] : null;
+    
+    let message, confirmText, cancelText;
+    
+    if (currentLang === 'sq') {
+        message = `Do të shkoni në faqen e ${supplier.toUpperCase()}?`;
+        confirmText = 'Po';
+        cancelText = 'Jo';
+    } else {
+        message = `You are about to visit the ${supplier.toUpperCase()} website. Do you want to continue?`;
+        confirmText = 'Yes';
+        cancelText = 'No';
+    }
+    
+    if (confirm(message)) {
+        window.open(url, '_blank');
+    }
+}

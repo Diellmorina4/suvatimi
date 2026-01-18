@@ -6,7 +6,7 @@
     <title>SUVATIMI-H | Professional Facade Services</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="navbar-top">
     <!-- Navigation -->
     <nav class="navbar">
         <a href="#home" class="logo-link">
@@ -21,21 +21,27 @@
             <span></span>
         </div>
         <ul class="nav-menu">
-            <li><a href="#home" data-en="Home" data-sq="Shtëpi">Home</a></li>
+            <li><a href="#home" data-en="Home" data-sq="Kreu">Home</a></li>
             <li><a href="#services" data-en="Services" data-sq="Shërbime">Services</a></li>
             <li><a href="#about" data-en="About" data-sq="Rreth">About</a></li>
             <li><a href="#suppliers" data-en="Suppliers" data-sq="Furnizuesit">Suppliers</a></li>
             <li><a href="#appointments" data-en="Book Appointment" data-sq="Rezervo Takimin">Book Appointment</a></li>
             <li><a href="#contact" data-en="Contact" data-sq="Kontakt">Contact</a></li>
         </ul>
-        <div class="language-switcher">
-            <button class="lang-dropdown-btn" onclick="toggleLanguageDropdown()">
-                <span id="current-lang">English</span>
-                <span class="dropdown-arrow">▼</span>
+        <div class="controls-section">
+            <button class="position-toggle-btn" onclick="toggleMenuPosition()" title="Toggle menu position">
+                <span id="position-text">Left</span>
+                <span class="position-icon">⇆</span>
             </button>
-            <div class="language-dropdown" id="language-dropdown">
-                <button class="lang-option active" onclick="changeLanguage('en'); toggleLanguageDropdown()">English (EN)</button>
-                <button class="lang-option" onclick="changeLanguage('sq'); toggleLanguageDropdown()">Shqip (SQ)</button>
+            <div class="language-switcher">
+                <button class="lang-dropdown-btn" onclick="toggleLanguageDropdown()">
+                    <span id="current-lang">English</span>
+                    <span class="dropdown-arrow">▼</span>
+                </button>
+                <div class="language-dropdown" id="language-dropdown">
+                    <button class="lang-option active" onclick="changeLanguage('en'); toggleLanguageDropdown()">English (EN)</button>
+                    <button class="lang-option" onclick="changeLanguage('sq'); toggleLanguageDropdown()">Shqip (SQ)</button>
+                </div>
             </div>
         </div>
     </nav>
@@ -71,7 +77,7 @@
                     <p data-knauf-desc>Specialized Knauf drywall and partition systems for interior and exterior applications.</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">🎨</div>
+                    <div class="service-icon">🖌️</div>
                     <h3 data-ngjyra-title>Ngjyra (Painting)</h3>
                     <p data-ngjyra-desc>Professional painting services with high-quality paints and finishes for aesthetic and protective coatings.</p>
                 </div>
@@ -115,7 +121,7 @@
             <h2 data-en="Our Suppliers" data-sq="Furnizuesit Tanë" data-suppliers-title>Our Suppliers</h2>
             <p class="section-subtitle" data-en="We work with trusted quality material suppliers" data-sq="Punojmë me furnizues të besuar të materialeve cilësore" data-suppliers-subtitle>We work with trusted quality material suppliers</p>
             <div class="suppliers-grid">
-                <a href="https://gemix.com/" target="_blank" class="supplier-card supplier-link">
+                <a onclick="askPermissionToVisit('gemix', 'https://gemix.com/')" class="supplier-card supplier-link">
                     <div class="supplier-logo">
                         <img src="gemix-logo.png" alt="Gemix Logo">
                     </div>
@@ -123,13 +129,21 @@
                     <h3>Gemix</h3>
                     <p>Premium quality materials and supplies for facade and construction projects</p>
                 </a>
-                <a href="https://knauf.com/en" target="_blank" class="supplier-card supplier-link">
+                <a onclick="askPermissionToVisit('knauf', 'https://knauf.com/en')" class="supplier-card supplier-link">
                     <div class="supplier-logo">
                         <img src="Knauf.png" alt="Knauf Logo">
                     </div>
                     <p class="supplier-click-text" data-en="Click to visit Knauf website" data-sq="Kliko për të vizituar faqen e Knauf" data-click-knauf>Click to visit Knauf website</p>
                     <h3>Knauf</h3>
                     <p>Leading manufacturer of drywall systems, insulation, and finishing solutions for construction</p>
+                </a>
+                <a onclick="askPermissionToVisit('pofix', 'https://pofix.com/')" class="supplier-card supplier-link">
+                    <div class="supplier-logo">
+                        <img src="pofix-logo.png" alt="POFIX Logo">
+                    </div>
+                    <p class="supplier-click-text" data-en="Click to visit POFIX website" data-sq="Kliko për të vizituar faqen e POFIX" data-click-pofix>Click to visit POFIX website</p>
+                    <h3>POFIX</h3>
+                    <p data-pofix-desc>Professional fixtures and supplies for construction and facade applications</p>
                 </a>
             </div>
         </div>
@@ -165,10 +179,13 @@
                 </div>
 
                 <form class="appointment-form" action="https://formsubmit.co/diell.morina5@gmail.com" method="POST">
+                    <div id="form-message" style="display:none; padding: 15px; margin-bottom: 20px; background: #d4edda; color: #155724; border-radius: 5px; text-align: center; font-size: 16px;">
+                        ✓ Thank you! Your appointment has been submitted. We'll contact you soon!
+                    </div>
                     <div class="form-row">
                         <div class="form-group">
                             <label data-label-name>Full Name *</label>
-                            <input type="text" name="full_name" placeholder="Your name" required>
+                            <input type="text" name="name" placeholder="Your name" required>
                         </div>
                         <div class="form-group">
                             <label data-label-email>Email *</label>
@@ -220,7 +237,7 @@
                         <label data-label-service>Service Type *</label>
                         <select name="service_type" required>
                             <option value="" data-select-service>Select service</option>
-                            <option value="suvatim" data-opt-suvatim>Suvatim (Rendering)</option>
+                            <option value="suvatim" data-opt-suvatim>Suvatim </option>
                             <option value="fasad" data-opt-fasad>Fasad (Facade)</option>
                             <option value="knauf" data-opt-knauf>Knauf Systems</option>
                             <option value="ngjyra" data-opt-ngjyra>Ngjyra (Painting)</option>
@@ -231,10 +248,9 @@
 
                     <div class="form-group">
                         <label data-label-details>Project Details</label>
-                        <textarea name="project_details" placeholder="Describe your project (optional)" rows="4"></textarea>
+                        <textarea name="message" placeholder="Describe your project (optional)" rows="4"></textarea>
                     </div>
 
-                    <input type="hidden" name="_captcha" value="false">
                     <button type="submit" class="submit-btn" data-schedule-apt>Schedule Appointment</button>
                     
                 </form>
@@ -253,12 +269,9 @@
                         <p><a href="tel:+38344217540">+38344217540</a></p>
                     </div>
                     <div class="contact-item">
-                        <h3 data-email-label>📧 Email</h3>
-                        <p><a href="mailto:diell.morina5@gmail.com">diell.morina5@gmail.com</a></p>
-                    </div>
-                    <div class="contact-item">
                         <h3 data-address-label>📍 Address</h3>
-                        <p>Ratkoc</p>
+                        <p>Ratkoc-Rahovec</p>
+                        <p>Visar Hoti 273</p>
                     </div>
                     <div class="contact-item">
                         <h3 data-hours-label>⏰ Hours</h3>

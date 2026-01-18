@@ -9,6 +9,10 @@ const translations = {
         bookAppointment: "Book Appointment",
         contact: "Contact",
         
+        // Menu Position
+        menuPositionLeft: "Left",
+        menuPositionTop: "Top",
+        
         // Hero section
         heroTitle: "SUVATIMI-H",
         heroSubtitle: "Professional Facade Services",
@@ -17,15 +21,15 @@ const translations = {
         
         // Services section
         ourServices: "Our Services",
-        suvatimTitle: "Suvatim (Rendering)",
+        suvatimTitle: "Suvatim ",
         suvatimDesc: "Professional plastering and rendering services using high-quality materials for smooth, durable finishes.",
-        fasadTitle: "Fasad (Facade)",
+        fasadTitle: "Facade",
         fasadDesc: "Complete facade systems installation and renovation with premium materials and expert craftsmanship.",
         knaufTitle: "Knauf Systems",
         knaufDesc: "Specialized Knauf drywall and partition systems for interior and exterior applications.",
-        ngjyraTitle: "Ngjyra (Painting)",
+        ngjyraTitle: "Painting",
         ngjyraDesc: "Professional painting services with high-quality paints and finishes for aesthetic and protective coatings.",
-        izolimTitle: "Izolim (Insulation)",
+        izolimTitle: "Insulation",
         izolimDesc: "Thermal and acoustic insulation solutions to improve energy efficiency and comfort of your property.",
         
         // Suppliers section
@@ -33,6 +37,8 @@ const translations = {
         suppliersSubtitle: "We work with trusted quality material suppliers",
         clickGemix: "Click to visit Gemix website",
         clickKnauf: "Click to visit Knauf website",
+        clickPofix: "Click to visit POFIX website",
+        pofixDesc: "Professional fixtures and supplies for construction and facade applications",
         
         // About section
         aboutUsTitle: "About SUVATIMI-H",
@@ -76,10 +82,10 @@ const translations = {
         serviceType: "Service Type",
         selectService: "Select service",
         suvatim: "Suvatim (Rendering)",
-        fasad: "Fasad (Facade)",
+        fasad: "Facade",
         knauf: "Knauf Systems",
-        ngjyra: "Ngjyra (Painting)",
-        izolim: "Izolim (Insulation)",
+        ngjyra: "Painting",
+        izolim: "Izolim Insulation",
         generalConsultation: "General Consultation",
         projectDetails: "Project Details",
         describeProject: "Describe your project (optional)",
@@ -116,30 +122,34 @@ const translations = {
     },
     sq: {
         // Navigation
-        home: "Shtëpi",
+        home: "Kreu",
         services: "Shërbime",
         about: "Rreth",
         suppliers: "Furnizuesit",
         bookAppointment: "Rezervo Takimin",
         contact: "Kontakt",
         
+        // Menu Position
+        menuPositionLeft: "Majtas",
+        menuPositionTop: "Lart",
+        
         // Hero section
         heroTitle: "SUVATIMI-H",
         heroSubtitle: "Shërbime Profesionale të Fasadës",
         heroTagline: "Ndërtim Cilësor & Punë Fasade që Mund ta Besoni",
-        getInTouch: "Kontaktoni Ne",
+        getInTouch: "Na Kontaktoni",
         
         // Services section
         ourServices: "Shërbime Tona",
-        suvatimTitle: "Suvatim (Pastrim)",
+        suvatimTitle: "Suvatim ",
         suvatimDesc: "Shërbime profesionale të suvatimit dhe pasturimit duke përdorur materiale cilësore për përfundime të lëmuara dhe të qëndrueshme.",
-        fasadTitle: "Fasad (Mbulesë)",
+        fasadTitle: "Fasad",
         fasadDesc: "Instalim dhe renovim i plotë të sistemeve të fasadës me materiale premium dhe punëkrahasim expert.",
         knaufTitle: "Sisteme Knauf",
         knaufDesc: "Sisteme të specializuara Knauf drillboard dhe ndarjesh për aplikime të brendshme dhe të jashtme.",
-        ngjyraTitle: "Ngjyra (Bojë)",
+        ngjyraTitle: "Ngjyra ",
         ngjyraDesc: "Shërbime profesionale të bojëzimit me ngjyra të lartë cilësore dhe përfuntime për mbulim estetik dhe mbrojtës.",
-        izolimTitle: "Izolim (Nxehtësi)",
+        izolimTitle: "Izolim ",
         izolimDesc: "Zgjidhje izolimi termik dhe akustik për të përmirësuar efikasitetin energjetik dhe komoditetin e pronës tuaj.",
         
         // Suppliers section
@@ -147,6 +157,8 @@ const translations = {
         suppliersSubtitle: "Punojmë me furnizues të besuar të materialeve cilësore",
         clickGemix: "Kliko për të vizituar faqen e Gemix",
         clickKnauf: "Kliko për të vizituar faqen e Knauf",
+        clickPofix: "Kliko për të vizituar faqen e POFIX",
+        pofixDesc: "Pajisje profesionale dhe furnizime për aplikacione ndërtimi dhe fasade",
         
         // About section
         aboutUsTitle: "Rreth SUVATIMI-H",
@@ -176,7 +188,7 @@ const translations = {
         
         // Form labels
         fullName: "Emri i Plotë",
-        email: "Posta Elektronike",
+        email: "Email",
         phone: "Telefoni",
         propertyType: "Lloji i Pronës",
         selectPropertyType: "Zgjidh llojin e pronës",
@@ -184,8 +196,8 @@ const translations = {
         commercial: "Tregtare",
         industrial: "Industriale",
         other: "Të tjera",
-        preferredDate: "Data e Preferuar",
-        preferredTime: "Koha e Preferuar",
+        preferredDate: "Data qe deshironi per takimin",
+        preferredTime: "Koha e deshiruar per takimin",
         selectTime: "Zgjidh kohën",
         serviceType: "Lloji i Shërbimit",
         selectService: "Zgjidh shërbimin",
