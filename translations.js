@@ -169,7 +169,7 @@ const translations = {
         reliableService: "Shërbim i Besueshëm & i Përjeashëm",
         competitivePricing: "Çmime Konkurruese",
         customerSatisfaction: "Kënaqësia e Klientit Garantuar",
-        projectGallery: "📸 Galeria e Projekteve",
+        projectGallery: "📸Projektet",
         
         // Appointments section
         bookAppointmentTitle: "Rezervo një Takim",

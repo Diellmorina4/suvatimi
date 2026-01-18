@@ -4,6 +4,26 @@ function toggleMenu() {
     navMenu.classList.toggle('active');
 }
 
+// Gallery toggle
+function toggleGallery() {
+    const allImages = document.querySelectorAll('.gallery-img');
+    const showMoreBtn = document.getElementById('show-more-btn');
+    const isExpanded = showMoreBtn.classList.contains('expanded');
+    
+    // Toggle images 6-13 (indices 5+)
+    for (let i = 5; i < allImages.length; i++) {
+        allImages[i].classList.toggle('gallery-hidden');
+    }
+    
+    // Toggle button state
+    showMoreBtn.classList.toggle('expanded');
+    if (isExpanded) {
+        showMoreBtn.innerHTML = '<span class="plus-icon">+</span>';
+    } else {
+        showMoreBtn.innerHTML = '<span class="plus-icon">−</span>';
+    }
+}
+
 // Menu position toggle
 function toggleMenuPosition() {
     const body = document.body;
