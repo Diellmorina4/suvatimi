@@ -131,6 +131,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const savedLanguage = localStorage.getItem('language') || 'sq';
     changeLanguage(savedLanguage);
     updateLanguageButtons(savedLanguage);
+    
+    // Attach contact form submit handler
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', handleForm);
+    }
 });
 
 // Change language function
