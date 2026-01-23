@@ -125,6 +125,80 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Client-side forwarding removed — relying solely on Formspree now.
 
+// In-page AJAX submit to Formspree with success/error message
+document.addEventListener('DOMContentLoaded', () => {
+    const contactForm = document.getElementById('contact-form');
+    const statusDiv = document.getElementById('form-status');
+    if (!contactForm) return;
+
+    contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const action = contactForm.getAttribute('action') || '';
+
+        // Build payload
+        const formData = new FormData(contactForm);
+        const payload = {};
+        formData.forEach((value, key) => {
+            if (payload[key]) {
+                if (Array.isArray(payload[key])) payload[key].push(value);
+                else payload[key] = [payload[key], value];
+            } else {
+                payload[key] = value;
+            }
+        });
+
+        try {
+            const res = await fetch(action, {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            });
+
+            if (res.ok) {
+                // Success
+                if (statusDiv) {
+                    statusDiv.style.display = 'block';
+                    statusDiv.textContent = 'Thank you — your message has been sent.';
+                    statusDiv.classList.remove('error');
+                    statusDiv.classList.add('success');
+                } else {
+                    alert('Thank you — your message has been sent.');
+                }
+                contactForm.reset();
+            } else {
+                // Try parse error message
+                let errMsg = 'Failed to send message. Please try again later.';
+                try {
+                    const json = await res.json();
+                    if (json && json.error) errMsg = json.error;
+                } catch (_) {}
+
+                if (statusDiv) {
+                    statusDiv.style.display = 'block';
+                    statusDiv.textContent = errMsg;
+                    statusDiv.classList.remove('success');
+                    statusDiv.classList.add('error');
+                } else {
+                    alert(errMsg);
+                }
+            }
+        } catch (err) {
+            if (statusDiv) {
+                statusDiv.style.display = 'block';
+                statusDiv.textContent = 'Network error. Please try again.';
+                statusDiv.classList.remove('success');
+                statusDiv.classList.add('error');
+            } else {
+                alert('Network error. Please try again.');
+            }
+            console.error('Form submit error:', err);
+        }
+    });
+});
+
 // Change language function
 function changeLanguage(lang) {
     localStorage.setItem('language', lang);
