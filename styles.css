@@ -248,6 +248,7 @@ body::before {
     gap: 5px;
     order: -1;
     margin-bottom: 20px;
+    margin-top: 30px;
 }
 
 .hamburger span {
