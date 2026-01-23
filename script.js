@@ -117,27 +117,13 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Apply saved position
     body.classList.add(`navbar-${savedPosition}`);
-    
-    // Wait for EmailJS to be available
-    function initEmailJS() {
-        if (typeof emailjs !== 'undefined') {
-            emailjs.init('He199eMJjcMN_xQVm');
-        } else {
-            setTimeout(initEmailJS, 100);
-        }
-    }
-    initEmailJS();
-    
+
     const savedLanguage = localStorage.getItem('language') || 'sq';
     changeLanguage(savedLanguage);
     updateLanguageButtons(savedLanguage);
-    
-    // Attach contact form submit handler
-    const contactForm = document.getElementById('contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', handleForm);
-    }
 });
+
+// Client-side forwarding removed — relying solely on Formspree now.
 
 // Change language function
 function changeLanguage(lang) {

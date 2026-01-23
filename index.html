@@ -208,7 +208,9 @@
                     </div>
                 </div>
 
-                <form id="contact-form" class="contact-form" novalidate>
+                <form id="contact-form" class="contact-form" action="https://formspree.io/f/xeealpen" method="POST" novalidate>
+                    <input type="hidden" name="_subject" value="New Contact Form Submission">
+                    <input type="hidden" name="dual_send" value="1">
                     <div class="form-group">
                         <input type="text" name="name" placeholder="Your Name" required>
                     </div>
@@ -221,9 +223,10 @@
                     <div class="form-group">
                         <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
                     </div>
-                    <input type="hidden" name="_captcha" value="false">
+                    
                     <button type="submit" class="submit-btn" data-send-message>Send Message</button>
                 </form>
+                <div id="form-status" class="form-status" aria-live="polite" style="display:none; margin-top:1rem;"></div>
             </div>
         </div>
     </section>
@@ -236,7 +239,6 @@
         </div>
     </footer>
 
-    <script type="text/javascript" src="https://unpkg.com/@emailjs/browser@3/dist/index.min.js"></script>
     <script src="translations.js"></script>
     <script src="script.js"></script>
 </body>
