@@ -4,6 +4,25 @@ function toggleMenu() {
     navMenu.classList.toggle('active');
 }
 
+// Hero carousel - change images every 5 seconds
+function initHeroCarousel() {
+    const images = document.querySelectorAll('.hero-bg-img');
+    if (images.length === 0) return;
+    
+    let currentIndex = 0;
+    
+    function showNextImage() {
+        images[currentIndex].classList.remove('active');
+        currentIndex = (currentIndex + 1) % images.length;
+        images[currentIndex].classList.add('active');
+    }
+    
+    setInterval(showNextImage, 5000);
+}
+
+// Initialize carousel when page loads
+document.addEventListener('DOMContentLoaded', initHeroCarousel);
+
 // Gallery toggle
 function toggleGallery() {
     const allImages = document.querySelectorAll('.gallery-img');
