@@ -123,10 +123,10 @@ body::before {
 
 /* Controls Section */
 .controls-section {
+    display: flex;
     margin-top: auto;
     padding-top: 20px;
     border-top: 1px solid rgba(255, 255, 255, 0.3);
-    display: flex;
     flex-direction: column;
     gap: 15px;
 }
@@ -248,7 +248,7 @@ body::before {
     gap: 5px;
     order: -1;
     margin-bottom: 20px;
-    margin-top: 30px;
+    margin-top: 10px;
 }
 
 .hamburger span {
@@ -344,6 +344,7 @@ body.navbar-top .nav-menu a:hover {
 }
 
 body.navbar-top .controls-section {
+    display: flex;
     margin-top: 0;
     padding-top: 0;
     border-top: none;
@@ -391,7 +392,7 @@ body.navbar-top .hero {
     background: linear-gradient(135deg, rgba(196, 30, 58, 0.9), rgba(139, 0, 0, 0.9)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%238b4513" width="1200" height="600"/><rect fill="%23a0522d" x="0" y="0" width="100" height="100"/><rect fill="%23a0522d" x="110" y="0" width="100" height="100"/><rect fill="%238b4513" x="110" y="110" width="100" height="100"/><rect fill="%238b4513" x="0" y="110" width="100" height="100"/></svg>');
     background-size: cover;
     background-position: center;
-    height: 700px;
+    height: 900px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1025,7 +1026,7 @@ body.navbar-top .hero {
         padding: 20px;
         gap: 0;
         max-height: calc(100vh - 60px);
-        overflow-y: auto;
+        overflow: visible;
     }
 
     body.navbar-left .nav-menu.active {
@@ -1094,7 +1095,7 @@ body.navbar-top .hero {
         padding: 20px;
         gap: 0;
         max-height: calc(100vh - 60px);
-        overflow-y: auto;
+        overflow: visible;
     }
 
     body.navbar-top .nav-menu.active {
@@ -1304,5 +1305,45 @@ body.navbar-top .hero {
     .form-group textarea {
         font-size: 16px;
         padding: 8px;
+    }
+}
+/* Language switcher in mobile menu */
+.language-switcher-mobile {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .language-switcher-mobile {
+        display: list-item;
+        list-style: none;
+        margin-top: 15px;
+        padding-top: 15px;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .language-switcher-mobile .lang-dropdown-btn {
+        width: 100%;
+        padding: 12px 0;
+        background: none;
+        border: none;
+        justify-content: flex-start;
+    }
+
+    .language-switcher-mobile .lang-dropdown-btn:hover {
+        background: none;
+        border: none;
+        opacity: 0.8;
+    }
+
+    .language-switcher-mobile .language-dropdown {
+        position: static;
+        background: rgba(139, 0, 0, 0.6);
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+        margin-top: 10px;
+        bottom: auto;
+        left: auto;
+        right: auto;
     }
 }
