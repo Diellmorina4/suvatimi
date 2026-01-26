@@ -123,78 +123,49 @@ document.addEventListener('DOMContentLoaded', () => {
     updateLanguageButtons(savedLanguage);
 });
 
-// Client-side forwarding removed — relying solely on Formspree now.
-
-// In-page AJAX submit to Formspree with success/error message
+// No AJAX handling — form will submit normally to the `action` endpoint (Formspree).
+// Populate hidden _replyto field with user's email before submit so Formspree replies work
 document.addEventListener('DOMContentLoaded', () => {
     const contactForm = document.getElementById('contact-form');
-    const statusDiv = document.getElementById('form-status');
+    if (!contactForm) return;
+    contactForm.addEventListener('submit', () => {
+        const emailInput = contactForm.querySelector('input[name="email"]');
+        const replyTo = document.getElementById('_replyto');
+        if (emailInput && replyTo) replyTo.value = emailInput.value || '';
+    });
+});
+// Debug helper: enable by opening the page with ?debugForm=1 to see the Formspree response
+document.addEventListener('DOMContentLoaded', () => {
+    if (!location.search.includes('debugForm=1')) return;
+    const contactForm = document.getElementById('contact-form');
     if (!contactForm) return;
 
     contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         const action = contactForm.getAttribute('action') || '';
-
-        // Build payload
         const formData = new FormData(contactForm);
         const payload = {};
-        formData.forEach((value, key) => {
-            if (payload[key]) {
-                if (Array.isArray(payload[key])) payload[key].push(value);
-                else payload[key] = [payload[key], value];
-            } else {
-                payload[key] = value;
-            }
+        formData.forEach((v, k) => {
+            if (payload[k]) {
+                if (Array.isArray(payload[k])) payload[k].push(v);
+                else payload[k] = [payload[k], v];
+            } else payload[k] = v;
         });
 
         try {
+            console.log('Debug: posting to', action, payload);
             const res = await fetch(action, {
                 method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
+                headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload)
             });
-
-            if (res.ok) {
-                // Success
-                if (statusDiv) {
-                    statusDiv.style.display = 'block';
-                    statusDiv.textContent = 'Thank you — your message has been sent.';
-                    statusDiv.classList.remove('error');
-                    statusDiv.classList.add('success');
-                } else {
-                    alert('Thank you — your message has been sent.');
-                }
-                contactForm.reset();
-            } else {
-                // Try parse error message
-                let errMsg = 'Failed to send message. Please try again later.';
-                try {
-                    const json = await res.json();
-                    if (json && json.error) errMsg = json.error;
-                } catch (_) {}
-
-                if (statusDiv) {
-                    statusDiv.style.display = 'block';
-                    statusDiv.textContent = errMsg;
-                    statusDiv.classList.remove('success');
-                    statusDiv.classList.add('error');
-                } else {
-                    alert(errMsg);
-                }
-            }
+            const text = await res.text();
+            console.log('Debug: response status', res.status, 'body', text);
+            alert('Response status: ' + res.status + '\n\nBody:\n' + text);
+            // Do not follow redirect — this is only for debugging
         } catch (err) {
-            if (statusDiv) {
-                statusDiv.style.display = 'block';
-                statusDiv.textContent = 'Network error. Please try again.';
-                statusDiv.classList.remove('success');
-                statusDiv.classList.add('error');
-            } else {
-                alert('Network error. Please try again.');
-            }
-            console.error('Form submit error:', err);
+            console.error('Debug: form send error', err);
+            alert('Network error while sending form: ' + err.message);
         }
     });
 });

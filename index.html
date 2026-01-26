@@ -208,9 +208,10 @@
                     </div>
                 </div>
 
-                <form id="contact-form" class="contact-form" action="https://formspree.io/f/xeealpen" method="POST" novalidate>
+                <form id="contact-form" class="contact-form" action="https://formspree.io/f/mreqqnog" method="POST" novalidate onsubmit="document.getElementById('_replyto').value = document.querySelector('input[name=email]').value;">
                     <input type="hidden" name="_subject" value="New Contact Form Submission">
-                    <input type="hidden" name="dual_send" value="1">
+                    <input type="hidden" name="_replyto" id="_replyto" value="">
+                    <input type="hidden" name="_next" value="thank-you.html">
                     <div class="form-group">
                         <input type="text" name="name" placeholder="Your Name" required>
                     </div>
@@ -226,7 +227,6 @@
                     
                     <button type="submit" class="submit-btn" data-send-message>Send Message</button>
                 </form>
-                <div id="form-status" class="form-status" aria-live="polite" style="display:none; margin-top:1rem;"></div>
             </div>
         </div>
     </section>
