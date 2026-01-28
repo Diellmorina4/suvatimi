@@ -13,6 +13,11 @@ const translations = {
         menuPositionLeft: "Left",
         menuPositionTop: "Top",
         
+        // Icons (Font Awesome classes)
+        phoneIcon: "fa-solid fa-phone",
+        addressIcon: "fa-solid fa-map-marker-alt",
+        hoursIcon: "fa-solid fa-clock",
+        
         // Hero section
         heroTitle: "SUVATIMI-H",
         heroSubtitle: "Professional Facade Services",
@@ -94,9 +99,9 @@ const translations = {
         
         // Contact section
         contactUsTitle: "Contact Us",
-        phoneLabel: "📞 Phone",
-        addressLabel: "📍 Address",
-        hoursLabel: "⏰ Hours",
+        phoneLabel: "Phone",
+        addressLabel: "Address",
+        hoursLabel: "Hours",
         mondayToSaturdayHours: "Monday - Saturday: 8:00 AM - 6:00 PM",
         sundayLabel: "Sunday: Closed",
         sendMessage: "Send Message",
@@ -132,6 +137,11 @@ const translations = {
         // Menu Position
         menuPositionLeft: "Majtas",
         menuPositionTop: "Lart",
+        
+        // Icons (Font Awesome classes)
+        phoneIcon: "fa-solid fa-phone",
+        addressIcon: "fa-solid fa-map-marker-alt",
+        hoursIcon: "fa-solid fa-clock",
         
         // Hero section
         heroTitle: "SUVATIMI-H",
@@ -213,10 +223,10 @@ const translations = {
         confirmWithin24: "Do të konfirmojmë takimin tuaj brenda 24 orësh",
         
         // Contact section
-        contactUsTitle: "Kontaktoni Ne",
-        phoneLabel: "📞 Telefoni",
-        addressLabel: "📍 Adresa",
-        hoursLabel: "⏰ Orë Pune",
+        contactUsTitle: "Na Kontaktoni",
+        phoneLabel: "Telefoni",
+        addressLabel: "Adresa",
+        hoursLabel: "Orë Pune",
         mondayToSaturdayHours: "E hënë - e shtunë: 8:00 - 18:00",
         sundayLabel: "e diel: Mbyllur",
         sendMessage: "Dërgo Mesazhin",
@@ -271,6 +281,15 @@ function setLanguage(lang) {
             element.textContent = element.getAttribute('data-en');
         } else {
             element.textContent = element.getAttribute('data-sq');
+        }
+    });
+    
+    // Update Font Awesome icons by their data-icon attribute
+    document.querySelectorAll('[data-icon]').forEach(element => {
+        const iconKey = element.getAttribute('data-icon');
+        if (translations[lang] && translations[lang][iconKey]) {
+            const iconClass = translations[lang][iconKey];
+            element.className = iconClass;
         }
     });
     

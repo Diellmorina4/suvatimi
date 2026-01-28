@@ -398,13 +398,22 @@ function changeLanguage(lang) {
         el.textContent = t.contactUsTitle;
     });
     document.querySelectorAll('[data-phone-label]').forEach(el => {
-        el.textContent = t.phoneLabel;
+        const icon = el.querySelector('i');
+        el.textContent = '';
+        if (icon) el.appendChild(icon);
+        el.appendChild(document.createTextNode(' ' + t.phoneLabel));
     });
     document.querySelectorAll('[data-address-label]').forEach(el => {
-        el.textContent = t.addressLabel;
+        const icon = el.querySelector('i');
+        el.textContent = '';
+        if (icon) el.appendChild(icon);
+        el.appendChild(document.createTextNode(' ' + t.addressLabel));
     });
     document.querySelectorAll('[data-hours-label]').forEach(el => {
-        el.textContent = t.hoursLabel;
+        const icon = el.querySelector('i');
+        el.textContent = '';
+        if (icon) el.appendChild(icon);
+        el.appendChild(document.createTextNode(' ' + t.hoursLabel));
     });
     document.querySelectorAll('[data-hours-time]').forEach(el => {
         el.textContent = t.mondayToSaturdayHours;
