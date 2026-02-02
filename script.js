@@ -124,15 +124,41 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // No AJAX handling — form will submit normally to the `action` endpoint (Formspree).
-// Populate hidden _replyto field with user's email before submit so Formspree replies work
+// Validate consent checkbox and populate hidden _replyto field with user's email before submit so Formspree replies work
 document.addEventListener('DOMContentLoaded', () => {
     const contactForm = document.getElementById('contact-form');
     if (!contactForm) return;
-    contactForm.addEventListener('submit', () => {
+    contactForm.addEventListener('submit', (e) => {
+        const consent = contactForm.querySelector('input[name="consent"]');
+        const consentError = document.getElementById('consent-error');
+
+        if (consent && !consent.checked) {
+            e.preventDefault();
+            if (consentError) {
+                consentError.style.display = 'block';
+                consentError.textContent = 'Ju lutemi pranoni politikën e privatësisë për të vazhduar.';
+            } else {
+                alert('Ju lutemi pranoni politikën e privatësisë për të vazhduar.');
+            }
+            consent.focus();
+            return;
+        }
+
         const emailInput = contactForm.querySelector('input[name="email"]');
         const replyTo = document.getElementById('_replyto');
         if (emailInput && replyTo) replyTo.value = emailInput.value || '';
     });
+    // Hide validation message when user checks the consent box
+    const consentBox = contactForm.querySelector('input[name="consent"]');
+    const consentErrorBox = document.getElementById('consent-error');
+    if (consentBox) {
+        consentBox.addEventListener('change', () => {
+            if (consentBox.checked && consentErrorBox) {
+                consentErrorBox.style.display = 'none';
+                consentErrorBox.textContent = '';
+            }
+        });
+    }
 });
 // Debug helper: enable by opening the page with ?debugForm=1 to see the Formspree response
 document.addEventListener('DOMContentLoaded', () => {
@@ -142,6 +168,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
+        const consent = contactForm.querySelector('input[name="consent"]');
+        const consentError = document.getElementById('consent-error');
+        if (consent && !consent.checked) {
+            if (consentError) {
+                consentError.style.display = 'block';
+                consentError.textContent = 'Ju lutemi pranoni politikën e privatësisë për të vazhduar.';
+            } else {
+                alert('Ju lutemi pranoni politikën e privatësisë për të vazhduar.');
+            }
+            consent.focus();
+            return;
+        }
         const action = contactForm.getAttribute('action') || '';
         const formData = new FormData(contactForm);
         const payload = {};

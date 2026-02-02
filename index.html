@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SUVATIMI-H | Professional Facade Services</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=2">
     <script src="https://kit.fontawesome.com/f6883d7b20.js" crossorigin="anonymous"></script>
 </head>
 <body class="navbar-top">
@@ -209,7 +209,7 @@
                     </div>
                 </div>
 
-                <form id="contact-form" class="contact-form" action="https://formspree.io/f/mreqqnog" method="POST" novalidate>
+                <form id="contact-form" class="contact-form" action="https://formspree.io/f/mreqqnog" method="POST" novalidate onsubmit="return validateConsent(this)">
                     <input type="hidden" name="_subject" value="SUVATIMI-H Contact Form Inquiry">
                     <input type="hidden" name="_captcha" value="true">
                     <input type="hidden" name="_next" value="thank-you.html">
@@ -225,7 +225,14 @@
                     <div class="form-group">
                         <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
                     </div>
-                    
+                    <div class="form-group privacy-group">
+                        <label class="privacy-label">
+                            <input type="checkbox" name="consent" id="consent-checkbox" required>
+                            Unë pranoj <a href="privacy-policy.html" target="_blank" rel="noopener">Privacy Policy</a>
+                        </label>
+                        <div class="validation-message" id="consent-error" aria-live="polite" style="display:none;color:#c62828;font-size:0.95em;margin-top:6px;"></div>
+                    </div>
+
                     <button type="submit" class="submit-btn" data-send-message>Send Message</button>
                 </form>
             </div>
@@ -241,6 +248,28 @@
     </footer>
 
     <script src="translations.js"></script>
-    <script src="script.js"></script>
+    <script src="script.js?v=2"></script>
+    <script>
+        function validateConsent(form) {
+            try {
+                var consent = form.querySelector('input[name="consent"]');
+                var consentError = document.getElementById('consent-error');
+                if (consent && !consent.checked) {
+                    if (consentError) {
+                        consentError.style.display = 'block';
+                        consentError.textContent = 'Ju lutemi pranoni politikën e privatësisë për të vazhduar.';
+                    } else {
+                        alert('Ju lutemi pranoni politikën e privatësisë për të vazhduar.');
+                    }
+                    consent.focus();
+                    return false;
+                }
+                if (consentError) { consentError.style.display = 'none'; consentError.textContent = ''; }
+                return true;
+            } catch (e) {
+                return true; // if JS errors, allow submit so site remains usable
+            }
+        }
+    </script>
 </body>
 </html>
