@@ -1,3 +1,30 @@
+// Background slideshow for body
+const backgroundImages = [
+    'images/project_photo_1.jpg',
+    'images/project_photo_2.jpg',
+    'images/project_photo_3.jpg',
+    'images/project_photo_4.jpg',
+    'images/project_photo_5.jpg',
+    'images/project_photo_6.jpg',
+    'images/project_photo_7.jpg',
+    'images/project_photo_8.jpg',
+    'images/project_photo_9.jpg',
+    'images/project_photo_10.jpg',
+    'images/project_photo_11.jpg',
+    'images/project_photo_12.jpg',
+    'images/project_photo_13.jpg'
+];
+
+let currentBg = 0;
+function changeBackground() {
+    document.body.style.backgroundImage = `url('${backgroundImages[currentBg]}')`;
+    currentBg = (currentBg + 1) % backgroundImages.length;
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+    changeBackground();
+    setInterval(changeBackground, 5000);
+});
 // Mobile menu toggle
 function toggleMenu() {
     const navMenu = document.querySelector('.nav-menu');

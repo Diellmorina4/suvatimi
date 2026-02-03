@@ -20,6 +20,9 @@ body {
     line-height: 1.6;
     background: linear-gradient(135deg, #8b4513 0%, #a0522d 100%);
     margin-left: 250px;
+    transition: background-image 1s ease-in-out;
+    background-size: cover;
+    background-position: center;
 }
 
 /* Background brick pattern */
