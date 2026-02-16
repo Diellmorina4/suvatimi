@@ -47,6 +47,40 @@ body::before {
     padding: 0 20px;
 }
 
+body.policy-page {
+    margin-left: 0;
+}
+
+.policy-card {
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 40px 20px;
+    background: #fff;
+    color: #111;
+    border-radius: 8px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.policy-card img {
+    max-width: 100%;
+    height: auto;
+}
+
+.policy-card a {
+    word-break: break-word;
+}
+
+@media (max-width: 768px) {
+    .policy-card {
+        margin: 30px 16px;
+        padding: 28px 16px;
+    }
+
+    .policy-card h1 {
+        font-size: 28px;
+    }
+}
+
 /* Navigation */
 .navbar {
     background: linear-gradient(135deg, var(--primary-red) 0%, var(--dark-red) 100%);
