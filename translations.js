@@ -21,7 +21,7 @@ const translations = {
         // Hero section
         heroTitle: "SUVATIMI-H",
         heroSubtitle: "Professional Facade Services",
-        heroTagline: "Quality Construction & Facade Work You Can Trust",
+        heroTagline: "Quality Facade Work You Can Trust",
         getInTouch: "Get In Touch",
         
         // Services section
@@ -42,8 +42,7 @@ const translations = {
         suppliersSubtitle: "We work with trusted quality material suppliers",
         clickGemix: "Click to visit Gemix website",
         clickKnauf: "Click to visit Knauf website",
-        clickPofix: "Click to visit POFIX website",
-        pofixDesc: "Professional fixtures and supplies for construction and facade applications",
+        
         
         // About section
         aboutUsTitle: "About SUVATIMI-H",
@@ -146,7 +145,7 @@ const translations = {
         // Hero section
         heroTitle: "SUVATIMI-H",
         heroSubtitle: "Shërbime Profesionale të Fasadës",
-        heroTagline: "Ndërtim Cilësor & Punë Fasade që Mund ta Besoni",
+        heroTagline: "Punë Cilësore të Fasadës që Mund ta Besoni",
         getInTouch: "Na Kontaktoni",
         
         // Services section
@@ -167,8 +166,7 @@ const translations = {
         suppliersSubtitle: "Punojmë me furnizues të besuar të materialeve cilësore",
         clickGemix: "Kliko për të vizituar faqen e Gemix",
         clickKnauf: "Kliko për të vizituar faqen e Knauf",
-        clickPofix: "Kliko për të vizituar faqen e POFIX",
-        pofixDesc: "Pajisje profesionale dhe furnizime për aplikacione ndërtimi dhe fasade",
+        
         
         // About section
         aboutUsTitle: "Rreth SUVATIMI-H",

@@ -12,6 +12,7 @@
     --text-light: #ffffff;
     --gray-light: #f5f5f5;
     --gray-medium: #d4d4d4;
+    --service-icon-color: var(--primary-red);
 }
 
 body {
@@ -53,12 +54,29 @@ body.policy-page {
 
 .policy-card {
     max-width: 800px;
+    width: min(800px, 100% - 32px);
     margin: 60px auto;
-    padding: 40px 20px;
+    padding: 40px 24px;
     background: #fff;
     color: #111;
     border-radius: 8px;
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.policy-card h1 {
+    font-size: clamp(28px, 4vw, 36px);
+    margin-bottom: 12px;
+}
+
+.policy-card h2 {
+    font-size: clamp(20px, 3vw, 26px);
+    margin-top: 22px;
+    margin-bottom: 10px;
+}
+
+.policy-card p {
+    font-size: clamp(15px, 2.4vw, 17px);
+    margin-bottom: 12px;
 }
 
 .policy-card img {
@@ -72,12 +90,29 @@ body.policy-page {
 
 @media (max-width: 768px) {
     .policy-card {
-        margin: 30px 16px;
-        padding: 28px 16px;
+        margin: 30px auto;
+        padding: 28px 18px;
     }
 
     .policy-card h1 {
-        font-size: 28px;
+        font-size: 26px;
+    }
+}
+
+@media (max-width: 480px) {
+    .policy-card {
+        width: calc(100% - 24px);
+        margin: 20px auto;
+        padding: 22px 16px;
+        border-radius: 6px;
+    }
+
+    .policy-card h1 {
+        font-size: 24px;
+    }
+
+    .policy-card h2 {
+        font-size: 19px;
     }
 }
 
@@ -150,6 +185,20 @@ body.policy-page {
     border-radius: 4px;
     display: block;
     border-left: 4px solid transparent;
+}
+
+.nav-menu a.nav-cta {
+    background: none;
+    border: none;
+    border-left: 4px solid transparent;
+    font-weight: 500;
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+.nav-menu a.nav-cta:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-left-color: var(--text-light);
 }
 
 .nav-menu a:hover {
@@ -374,6 +423,13 @@ body.navbar-top .nav-menu a {
     font-size: 14px;
 }
 
+body.navbar-top .nav-menu a.nav-cta {
+    padding: 10px 15px;
+    border: none;
+    background: none;
+    border-left: none;
+}
+
 body.navbar-top .nav-menu a:hover {
     background: rgba(255, 255, 255, 0.15);
     border-left: none;
@@ -554,6 +610,7 @@ body.navbar-top .hero {
 .service-icon {
     font-size: 48px;
     margin-bottom: 20px;
+    color: var(--service-icon-color);
 }
 
 .service-card h3 {
@@ -958,6 +1015,100 @@ body.navbar-top .hero {
     text-decoration: none;
     font-weight: 600;
     transition: all 0.3s ease;
+}
+
+.contact-item .socials-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 12px;
+    padding: 12px 18px;
+    border-radius: 6px;
+    background: linear-gradient(135deg, #e51e1e, #c01515);
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    box-shadow: 0 4px 15px rgba(192, 21, 21, 0.35);
+    border: none;
+}
+
+.contact-item .socials-button:hover {
+    transform: translateY(-2px);
+    color: #ffffff;
+    box-shadow: 0 6px 20px rgba(21, 101, 192, 0.45);
+}
+
+body.policy-page,
+body.socials-page {
+    margin-left: 0;
+}
+
+.socials-card {
+    max-width: 900px;
+    width: min(900px, 100% - 32px);
+    margin: 60px auto;
+    padding: 40px 24px;
+    background: #fff;
+    color: #111;
+    border-radius: 10px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.socials-card h1 {
+    font-size: clamp(28px, 4vw, 36px);
+    margin-bottom: 10px;
+}
+
+.socials-card p {
+    font-size: clamp(15px, 2.4vw, 17px);
+    margin-bottom: 16px;
+}
+
+.socials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.socials-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 16px 18px;
+    border-radius: 10px;
+    border: 2px solid rgba(196, 30, 58, 0.15);
+    background: linear-gradient(135deg, rgba(196, 30, 58, 0.05), rgba(139, 0, 0, 0.05));
+    color: #111;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.25s ease;
+}
+
+.socials-link span {
+    font-size: 14px;
+    font-weight: 600;
+    color: #555;
+}
+
+.socials-link:hover {
+    transform: translateY(-2px);
+    border-color: rgba(196, 30, 58, 0.4);
+    box-shadow: 0 8px 20px rgba(196, 30, 58, 0.18);
+}
+
+.socials-back {
+    display: inline-block;
+    margin-top: 24px;
+    color: var(--primary-red);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.socials-back:hover {
+    text-decoration: underline;
 }
 
 .contact-item a:hover {
