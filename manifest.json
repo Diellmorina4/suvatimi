@@ -1,0 +1,11 @@
+{
+  "background_color": "#ffffff",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "Suvatimi",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "suvatimi shpk",
+  "start_url": "/",
+  "theme_color": "#ffffff"
+}
