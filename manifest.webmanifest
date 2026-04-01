@@ -1,0 +1,25 @@
+{
+  "name": "SUVATIMI-H SHPK",
+  "short_name": "SUVATIMI-H",
+  "description": "Professional facade and construction services.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#8b0000",
+  "theme_color": "#8b0000",
+  "lang": "sq",
+  "icons": [
+    {
+      "src": "app-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "app-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

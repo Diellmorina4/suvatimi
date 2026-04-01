@@ -3,7 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#8b0000">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>SUVATIMI-H | Professional Facade Services</title>
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="icon" href="app-icon-192.png" type="image/png">
+    <link rel="apple-touch-icon" href="app-icon-512.png">
     <link rel="stylesheet" href="styles.css?v=2">
     <script src="https://kit.fontawesome.com/f6883d7b20.js" crossorigin="anonymous"></script>
 </head>
@@ -278,6 +284,15 @@
             } catch (e) {
                 return true; // if JS errors, allow submit so site remains usable
             }
+        }
+    </script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js').catch(() => {
+                    // Keep main site behavior intact if SW registration fails.
+                });
+            });
         }
     </script>
 </body>
